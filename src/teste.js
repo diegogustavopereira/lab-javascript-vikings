@@ -77,25 +77,22 @@ class War {
 
     vikingAttack(){
                 
-        let ivk = Math.floor(this.vikingArmy.length * Math.random());
-        let isax = Math.floor(this.saxonArmy.length * Math.random());;
+        let vk = escolha(this.vikingArmy);
+        let sax = escolha(this.saxonArmy);
 
-        let vk = this.vikingArmy[ivk];
-        let sax = this.saxonArmy[isax];
+        let viking = this.vikingArmy[vk];
+        let saxon = this.saxonArmy[sax];
 
-        let str2 = vk.strength;
+        let msg = Saxon.receiveDamage(viking.strength);
 
-        const msg = saxon.receiveDamage(str2)
-        
-        if (sax.health <= 0){
-            this.sax.splice(sax, 1);
+        if (saxon.health <= 0){
+            this.saxonArmy.splice(sax, 1);
         }
-    
+
         return msg;
-        
+
     }
 
-    
     saxonAttack(){
 
     }
@@ -107,3 +104,17 @@ class War {
     
 
 }
+
+
+
+let a = new Viking('Harald', 150, 300);
+console.log(a);
+let b = new Saxon(60, 25);
+console.log(b);
+
+war.addViking(a);
+war.addSaxon(b);
+
+
+console.log(vikingArmy);
+console.log(saxonArmy);
